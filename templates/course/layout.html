@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Course</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'course/style.css' %}">
+    <link rel="stylesheet" href="{% static 'course/style.css' %}" />
   </head>
   <body>
+      <header>
+        <a class="site-bar" href="#">Course</a>
+        <a class="site-bar" href="#">User</a>
+      </header>
     {% block content %}
     {% endblock %}
   </body>
