@@ -26,7 +26,7 @@ def sign_in(request):
                 return redirect('admin:index')
             else:
                 login(request, user)
-                return render(request,'course/layout.html')
+                return render(request,'course/course.html')
         
         # form is not valid or user is not authenticated
         messages = "Invalid username or password"
