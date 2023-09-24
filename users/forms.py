@@ -3,3 +3,7 @@ from django import forms
 class LoginForm(forms.Form):
     username = forms.CharField(label='username', max_length=64)
     password = forms.CharField(label='password', max_length=64, widget=forms.PasswordInput)
+    error_messages = ""
+    
+    def set_error(self, message):
+        self.error_messages = message

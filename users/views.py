@@ -16,6 +16,11 @@ def sign_in(request):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
             user = authenticate(request,username=username,password=password)
+            if user is None:
+                form.set_error("Invalid username or password")
+                return render(request,'users/login.html',{'form': form})
+            
+            form.set_error("")
             if user.is_staff:
                 login(request, user)
                 return redirect('admin:index')
@@ -24,5 +29,5 @@ def sign_in(request):
                 return render(request,'course/layout.html')
         
         # form is not valid or user is not authenticated
-        messages.error(request,f'Invalid username or password')
-        return render(request,'users/login.html',{'form': form})
+        messages = "Invalid username or password"
+        return render(request,'users/login.html',{'form': form, 'messages': messages})
