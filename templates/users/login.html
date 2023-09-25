@@ -12,7 +12,12 @@
           {% csrf_token %}
           <span class="login100-form-title">Member Login</span>
           
-          <span class="text-danger">{{ form.error_messages }}</span>
+          {% if messages %}
+            {% for message in messages %}
+              <span class="text-danger">{{ message }}</span>
+            {% endfor %}
+          {% endif %}
+
           <div class="wrap-input100 validate-input" data-validate="Username is required">
             <input class="input100" type="text" placeholder="Username" name="username" />
             <span class="focus-input100"></span>
@@ -33,7 +38,7 @@
     </div>
   </div>
 
-  {% comment %} ! Animation 
+  {% comment %}! Animation{% endcomment %}
   <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
   <script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
@@ -46,5 +51,5 @@
     })
   </script>
 
-  <script src="{% static 'js/main.js' %}"></script> {% endcomment %}
+  <script src="{% static 'js/main.js' %}"></script>
 {% endblock %}
