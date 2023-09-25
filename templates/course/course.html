@@ -1,5 +1,85 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-  {% comment %}navigation bar Vertical{% endcomment %}
+  <style>
+    .container {
+      display: grid;
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      grid-template-areas: "head head head head"
+                           "navi main main main"
+                           "navi main main main"
+                           "navi main main main"
+                           "navi main main main"
+                           "foot foot foot foot";
+    }
+    
+    .head {
+      grid-area: head;
+      display: flex;
+      align-items: center;
+      height: 80px;
+      margin-top: 30px;
+    }
+    .head img {
+      display: block; 
+      height: 80px;
+      margin-left: -100px;
+    }
+    .head h1 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+    .navi {
+      grid-area: navi;
+      display: flex;
+      align-items: start;
+      font-size: 24px;
+      font-weight: bold;
+      margin-left: -80px;
+    }
+
+    .navi ul {
+      list-style: none;
+      padding: 0;
+      width: 40%;
+    }
+
+    .navi ul li{
+      margin: auto;
+      padding-left: 10px;
+    }
+
+    .navi ul li:hover{
+      background-color: #f0f0f0;
+      border: #f0f0f0;
+      border-radius: 10px;
+    }
+    .navi ul li a{
+      display: block;
+      padding: 5px;
+    }
+
+    .main {
+      grid-area: main;
+      border-radius: 30px;
+      background-color: #fff;
+    }
+  </style>
+  <section class="container">
+    <header class="head">
+      <img src="{% static 'images/logo.png' %}"/>
+      <h1>Course Quota</h1>
+    </header>
+    <niv class="navi">
+      <ul>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Course</a></li>
+        <li><a href="#">My Course</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </niv>
+    <p class="main">test</p>
+  </section>
 {% endblock %}
