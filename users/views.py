@@ -29,10 +29,10 @@ def sign_in(request):
             
             if user.is_staff:
                 login(request, user)
-                return redirect('admin:index')
+                return redirect('admin:index', {'user': user.get_username()})
             else:
                 login(request, user)
-                return render(request,'course/course.html')
+                return render(request,'course/course.html', {'user': user.get_username()})
         
         messages.error(request, "Invalid username or password")
         return render(request,'users/login.html',{'form': form})

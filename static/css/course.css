@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+body {
+    height: 100%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #f3f8ff;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    display: block;
+    overflow: hidden;
+}
+
+nav {
+    display: block;
+    grid-area: sidebar;
+    width: 30px;
+    margin-top: 20px;
+}
+
+section {
+    display: block;
+    grid-area: content;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    display: block;
+    overflow: hidden;
+    margin-top: 50px;
+    margin-right: 20px;
+    border-radius: 20px;
+    height: 530px;;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px ;
+    width: 200px;
+}
+
+li a {
+    display: block;
+    border-radius: 15px;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 10px 0;
+  }
+  
+  a p {
+    position: relative;
+    left: 60px;
+    margin: 0;
+  }
+  
+  li a.active {
+    background-color: #212529;
+    color: white;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+
+  li a:hover:not(.active) .fa {
+    background-color: #555;
+    color: white;
+  }
+
+.container-grid {
+    display: grid;
+    height: 100%;
+    grid-template-areas: "header header header header header" 
+                         "sidebar content content content content" 
+                         "sidebar content content content content";
+}
+
+.header {
+    grid-area: header;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    display: block;
+}
+.header-pic {
+    height: 60px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.header-pic img {
+    height: 70%;
+}
+
+.fa {
+    font-size: 1.5rem;
+    color: #000;
+    margin: 0 10px;
+    cursor: pointer;
+    position: absolute;
+}
+
+.user { left: 42px; }
+.board { left: 42px; }
+.cap { left: 40px; }
+.out { left: 45px; }

@@ -2,28 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
-.element {
-    position: relative;
-}
- 
-/*replace the content value with the
-corresponding value from the list below*/
- 
-.element:before {
-    content: "\f000";
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: normal;
-    text-decoration: inherit;
-/*--adjust as necessary--*/
-    color: #000;
-    font-size: 18px;
-    padding-right: 0.5em;
-    position: absolute;
-    top: 10px;
-    left: 0;
-}
-
 body {
     height: 100%;
 	font-family: "Poppins", sans-serif;
