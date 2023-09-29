@@ -5,19 +5,13 @@ from django.contrib.auth.models import User
 
 # The Student class is a model that represents a student with a unique student ID, name, and email.
 class Student(models.Model):
-    student_id = models.OneToOneField(User, on_delete=models.CASCADE)
+    ID = models.OneToOneField(User, on_delete=models.CASCADE)
     fname = models.CharField(max_length=64)
     lname = models.CharField(max_length=64)
     email = models.CharField(max_length=64)
 
     def __str__(self):
-        return f'{self.student_id} | {self.email}'
+        return f'{self.ID} | {self.email}'
     
     def get_full_name(self):
         return f'{self.fname} {self.lname}'
-    
-    def get_username(self):
-        return f'{self.student_id}'
-    
-    def get_email(self):
-        return f'{self.email}'

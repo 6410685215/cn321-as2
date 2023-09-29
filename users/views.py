@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from .forms import LoginForm
-from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib import messages
+from .forms import LoginForm
 from .models import Student
 
 # Create your views here.
@@ -15,14 +15,16 @@ def sign_in(request):
     :return: The function `sign_in` returns different responses depending on the request method.
     """
     if request.user.is_authenticated:
-        if request.user.is_staff:
-            return render(request,'course/page_user.html', {'username': request.user, 
-                                                            'admin': request.user.is_staff,})
-        user_s = Student.objects.get(student_id=request.user)
-        return render(request,'course/page_user.html', {'username': user_s.get_username(),
-                                                                'admin': user.is_staff, 
-                                                                'name': user_s.get_full_name(), 
-                                                                'email': user_s.get_email()})
+        user = request.user
+        admin = user.is_staff
+        if admin:
+            return render(request,'course/page_user.html', {'username': user, 
+                                                            'admin': admin,})
+        user_s = Student.objects.get(ID=request.user)
+        return render(request,'course/page_user.html', {'username': user_s.ID,
+                                                        'admin': user.is_staff, 
+                                                        'name': user_s.get_full_name(), 
+                                                        'email': user_s.email})
     
     if request.method == 'GET':
         form = LoginForm()
@@ -44,12 +46,12 @@ def sign_in(request):
                 return render(request,'course/page_user.html', {'username': user, 
                                                                 'admin': user.is_staff,})
             else:
-                user_s = Student.objects.get(student_id=user)
+                user_s = Student.objects.get(ID=user)
                 login(request, user)
-                return render(request,'course/page_user.html', {'username': user_s.get_username(),
+                return render(request,'course/page_user.html', {'username': user_s.ID,
                                                                 'admin': user.is_staff, 
                                                                 'name': user_s.get_full_name(), 
-                                                                'email': user_s.get_email()})
+                                                                'email': user_s.email})
         
         messages.error(request, "Invalid username or password")
         return render(request,'users/login.html',{'form': form})
@@ -60,6 +62,7 @@ def sign_out(request):
 
     :return: The function `sign_out` returns a redirect to the login page.
     """
-    if request.user.is_authenticated:
+    user = request.user
+    if user.is_authenticated:
         logout(request)
     return redirect('login')
