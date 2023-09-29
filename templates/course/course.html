@@ -4,11 +4,17 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/course.css' %}" />
   <body class="container-grid">
     <header class="header">
-      <div class="header-pic">
-        <img src="{% static 'images/horizon_logo.png' %}" alt="IMG" />
+      <div>
+        <div class="header-pic">
+          <img src="{% static 'images/horizon_logo.png' %}" alt="IMG" />
+          {% if admin %}
+            <a href="{% url 'admin:index' %}"><i class="fa header-end fa-wrench"></i></a>
+          {% endif %}
+        </div>
       </div>
     </header>
     {% block page %}
+
     {% endblock %}
   </body>
 {% endblock %}

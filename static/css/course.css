@@ -106,7 +106,23 @@ li a {
     color: #000;
     margin: 0 10px;
     cursor: pointer;
+}
+.fa:hover {
+    color: #fed04c;
+}
+
+.pos-ab {
     position: absolute;
+}
+
+.header-end {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
 }
 
 .user { left: 42px; }
