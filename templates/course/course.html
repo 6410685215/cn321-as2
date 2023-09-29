@@ -8,26 +8,7 @@
         <img src="{% static 'images/horizon_logo.png' %}" alt="IMG" />
       </div>
     </header>
-
-    <nav>
-      <ul class="block-color">
-        <li>
-          <a href="#"><i class="fa user fa-user-circle-o"></i><p>{{ user }}</p></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa board fa-folder"></i><p>Dashboard</p></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa cap fa-graduation-cap"></i><p>Course</p></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa out fa-sign-out"></i><p>Logout</p></a>
-        </li>
-      </ul>
-    </nav>
-    <section>
-      {% block page %}
-      {% endblock %}
-    </section>
+    {% block page %}
+    {% endblock %}
   </body>
 {% endblock %}

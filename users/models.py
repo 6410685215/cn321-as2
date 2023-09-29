@@ -11,4 +11,4 @@ class Student(models.Model):
     email = models.CharField(max_length=64)
 
     def __str__(self):
-        return self.student_id.username, self.name, self.email
+        return f'{self.student_id} | {self.email}'

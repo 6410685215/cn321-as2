@@ -1,0 +1,23 @@
+{% extends "course/course.html" %}
+{% load static %}
+{% block page %}
+<nav>
+    <ul class="block-color">
+      <li>
+        <a href="{% url 'page_user' %}"><i class="fa user fa-user-circle-o"></i><p>{{ user }}</p></a>
+      </li>
+      <li>
+        <a href="{% url 'page_board' %}"><i class="fa board fa-folder"></i><p>Dashboard</p></a>
+      </li>
+      <li>
+        <a class="active" href="{% url 'page_course' %}"><i class="fa cap fa-graduation-cap" style="color: white;"></i><p>Course</p></a>
+      </li>
+      <li>
+        <a href="#"><i class="fa out fa-sign-out"></i><p>Logout</p></a>
+      </li>
+    </ul>
+  </nav>
+  <section>
+    
+  </section>
+{% endblock %}
