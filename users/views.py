@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login
 from .forms import LoginForm
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
+from .models import Student
 
 # Create your views here.
 @csrf_exempt
@@ -31,8 +32,11 @@ def sign_in(request):
                 login(request, user)
                 return redirect('admin:index')
             else:
+                user_s = Student.objects.get(student_id=user)
                 login(request, user)
-                return render(request,'course/page_user.html', {'user': user.get_username()})
+                return render(request,'course/page_user.html', {'user': user_s.get_username(), 
+                                                                'name': user_s.get_full_name(), 
+                                                                'email': user_s.get_email()})
         
         messages.error(request, "Invalid username or password")
         return render(request,'users/login.html',{'form': form})

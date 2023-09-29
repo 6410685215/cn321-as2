@@ -12,3 +12,12 @@ class Student(models.Model):
 
     def __str__(self):
         return f'{self.student_id} | {self.email}'
+    
+    def get_full_name(self):
+        return f'{self.fname} {self.lname}'
+    
+    def get_username(self):
+        return f'{self.student_id}'
+    
+    def get_email(self):
+        return f'{self.email}'
