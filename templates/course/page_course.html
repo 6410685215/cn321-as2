@@ -1,6 +1,7 @@
 {% extends 'course/course.html' %}
 {% load static %}
 {% block page %}
+  <link rel="stylesheet" href="{% static 'course/css/enroll.css' %}">
   <nav>
     <ul class="block-color">
       <li>
@@ -17,5 +18,28 @@
       </li>
     </ul>
   </nav>
-  <section></section>
+  <section>
+    <table>
+      <tr>
+        <th>Course ID</th>
+        <th>Course Name</th>
+        <th>Quota</th>
+        <th>Enroll</th>
+      </tr>
+      {% for course in courses %}
+      <tr>
+        <td>{{ course.course_id }}</td>
+        <td>{{ course.course_name }}</td>
+        <td>{{ course.quota }}</td>
+        <td>
+          <form action="{% url 'course_enroll' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" name="course_id" value="{{ course.course_id }}" class="btn btn-primary">Enroll</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    
+  </section>
 {% endblock %}

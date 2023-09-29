@@ -1,0 +1,14 @@
+.container-grid-enroll {
+    display: grid;
+    grid-template-areas: 'header header header'
+                         'main main main'
+                         'main main main';
+    margin: 0;
+    padding: 0;
+}
+
+.container-grid-enroll > header {
+    grid-area: header;
+    margin: 0;
+    padding: 0;
+}
