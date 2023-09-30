@@ -1,5 +1,5 @@
 # cn331-as2
-This is a Django framework-based with HTML web application development, using for request for a quota to register a class in collage. 
+This is a Django framework-based with HTML web application development, using for `request for a quota` to register a class in collage. 
 There are functions to use as follows:
 * Login Page as admin and students
 * For admin, they can manage their course with admin interface in Django where course include CourseID, Name, Semester, Year, QuotaAmount, and Status.
@@ -9,6 +9,8 @@ There are functions to use as follows:
 * More function
   - Admin can see all of student list who request a quota
 
+🔗 Demonstration video link :
+
 Presented by
 6410685165 Thanadon Boontawee
-64 Patcharapol
+6410685215 Patcharapol Thappakwan (Edit your name HERE if it wrong)
