@@ -25,7 +25,7 @@ nav {
     margin-top: 20px;
 }
 
-section {
+.block-section {
     display: block;
     grid-area: content;
     background-color: #fff;
@@ -33,10 +33,14 @@ section {
     z-index: 100;
     display: block;
     overflow: hidden;
-    margin-top: 50px;
+    margin-bottom: 20px;
     margin-right: 20px;
     border-radius: 20px;
-    height: 530px;;
+    height: 530px;
+    width: 80%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 ul {

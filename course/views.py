@@ -27,7 +27,7 @@ def page_user(request):
     return render(request, 'course/page_user.html', { 'username': user,
                                                       'admin': admin,
                                                       'name': user_s.get_full_name(), 
-                                                      'email': user_s.get_email()})
+                                                      'email': user_s.email,})
 
 def page_board(request):
     user = request.user

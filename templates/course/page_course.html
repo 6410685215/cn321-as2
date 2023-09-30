@@ -18,14 +18,8 @@
       </li>
     </ul>
   </nav>
-  <section>
-    <table>
-      <tr>
-        <th>Course ID</th>
-        <th>Course Name</th>
-        <th>Quota</th>
-        <th>Enroll</th>
-      </tr>
+  <section class="block-section">
+    {% comment %} 
       {% for course in courses %}
       <tr>
         <td>{{ course.ID }}</td>
@@ -39,7 +33,17 @@
         </td>
       </tr>
       {% endfor %}
-    </table>
+    </table> {% endcomment %}
+    <div style="display: flex; 
+                justify-content: space-between; 
+                margin: 20px; 
+                padding-left: 50px; 
+                padding-right: 50px;">
+      <h3>Course ID</h3>
+      <h3>Course Name</h3>
+      <h3>Quota</h3>
+      <h3>Enroll</h3>
+    </div>
     
   </section>
 {% endblock %}
