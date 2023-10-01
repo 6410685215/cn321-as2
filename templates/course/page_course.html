@@ -36,6 +36,10 @@
               <form>
                 <button type="button" class="button-27-ed">Enrolled</button>
               </form>
+            {% elif not course.quota  %}
+              <form>
+                <button type="button" class="button-27-fu">Full</button>
+              </form>
             {% else %}
             <form action="{% url 'course_enroll' %}" method="post">
               {% csrf_token %}

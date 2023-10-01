@@ -11,11 +11,12 @@ def page_course(request):
     admin = user.is_staff
     course = Course.objects.all()
     enroll = Enroll.objects.filter(student_id=user)
-    print(enroll.values_list('course_id', flat=True))
+    enroll = enroll.values_list('course_id', flat=True)    
+
     return render(request, 'course/page_course.html', { 'username': user,
                                                         'admin': admin,
                                                         'courses': course,
-                                                        'enroll': enroll.values_list('course_id', flat=True),})
+                                                        'enroll': enroll,})
 
 def page_user(request):
     user = request.user
@@ -39,16 +40,15 @@ def course_enroll(request):
     user = request.user
     admin = user.is_staff
     if admin:
-        return render(request, 'course/page_course.html', { 'username': user,
-                                                            'admin': admin,})
+        return page_course(request)
+    
     course = Course.objects.get(ID=request.POST['course_id'])
     course.quota -= 1
+    if course.quota < 0:
+        return page_course(request)
     course.save()
     course_enroll = Enroll(student_id=user, course_id=course)
     course_enroll.save()
-    # return render(request, 'course/page_course.html', { 'username': user,
-    #                                                     'admin': admin,
-    #                                                     'courses': Course.objects.all(),})
     return page_course(request)
     
 def course_drop(request):
