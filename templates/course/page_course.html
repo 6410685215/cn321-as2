@@ -7,7 +7,7 @@
         <a href="{% url 'page_user' %}"><i class="fa pos-ab user fa-user-circle-o"></i><p class="a-p">{{ username }}</p></a>
       </li>
       <li class="list-item">
-        <a href="{% url 'page_board' %}"><i class="fa pos-ab board fa-folder"></i><p class="a-p">Dashboard</p></a>
+        <a href="{% url 'page_board' %}"><i class="fa pos-ab board fa-folder"></i><p class="a-p">My Course</p></a>
       </li>
       <li class="list-item">
         <a class="active" href="{% url 'page_course' %}"><i class="fa pos-ab cap fa-graduation-cap" style="color: white;"></i><p class="a-p">Course</p></a>
@@ -18,21 +18,6 @@
     </ul>
   </nav>
   <section class="sec">
-    {% comment %} 
-      {% for course in courses %}
-      <tr>
-        <td>{{ course.ID }}</td>
-        <td>{{ course.name }}</td>
-        <td>{{ course.quota }}</td>
-        <td>
-          <form action="{% url 'course_enroll' %}" method="post">
-            {% csrf_token %}
-            <button type="submit" name="course_id" value="{{ course.ID }}" class="btn btn-primary">Enroll</button>
-          </form>
-        </td>
-      </tr>
-      {% endfor %}
-    </table> {% endcomment %}
     <div class="sec-table-title">
       <h3>Course ID</h3>
       <h3>Course Name</h3>
@@ -47,10 +32,16 @@
           <td>{{ course.name }}</td>
           <td><a>{{ course.quota }}</a></td>
           <td>
+            {% if course.ID in enroll %}
+              <form>
+                <button type="button" class="button-27-ed">Enrolled</button>
+              </form>
+            {% else %}
             <form action="{% url 'course_enroll' %}" method="post">
               {% csrf_token %}
-              <button type="submit" name="course_id" value="{{ course.ID }}" class="button-27">Enroll</button>
+              <button type="submit" name="course_id" value="{{ course.ID }}" class="button-27-en">Enroll</button>
             </form>
+            {% endif %}
           </td>
         </tr>
       {% endfor %}
