@@ -6,6 +6,7 @@ class Course(models.Model):
     ID = models.CharField(max_length=10, primary_key=True)
     name = models.CharField(max_length=50)
     quota = models.IntegerField()
+    enrolled = models.IntegerField(default=0)
     
     def __str__(self):
         return f'{self.ID} {self.name} - {self.quota}'
