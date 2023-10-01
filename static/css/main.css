@@ -381,21 +381,30 @@ html [type="button"] {
     text-align: left;
     padding-bottom: 10px;
     margin: 5px;
-    width: 200px;
+}
+.p-id {
+    width: 220px;
+}
+.p-n {
+    width: 246px;
+}
+.td-p {
+    padding-inline: 143px;
 }
 
 .sec-table td a {
+    display: block;
     font-weight: 500;
-    text-align: left;
-    padding-left: 90px;
     padding-bottom: 10px;
     margin: 5px;
+    width: 120px;
+    text-align: center;
 }
 
 .sec-table td form {
     font-weight: 500;
     text-align: left;
-    margin-left: 195px;
+    width: 100px;
 }
 
 .sec-table-title {

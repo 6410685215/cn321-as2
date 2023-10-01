@@ -28,10 +28,10 @@
       <table class="sec-table">
       {% for course in courses %}
         <tr>
-          <td><p>{{ course.ID }}</p></td>
-          <td>{{ course.name }}</td>
+          <td><p class="p-id">{{ course.ID }}</p></td>
+          <td><p class="p-n">{{ course.name }}</p></td>
           <td><a>{{ course.enrolled }}</a></td>
-          <td>
+          <td class="td-p">
             <form action="{% url 'course_drop' %}" method="post">
               {% csrf_token %}
               <button type="submit" name="course_id" value="{{ course.ID }}" class="button-27-en">Drop</button>

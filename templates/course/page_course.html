@@ -28,12 +28,12 @@
       <table class="sec-table">
       {% for course in courses %}
         <tr>
-          <td><p>{{ course.ID }}</p></td>
-          <td>{{ course.name }}</td>
+          <td><p class="p-id">{{ course.ID }}</p></td>
+          <td><p class="p-n">{{ course.name }}</p></td>
           <td><a>{{ course.quota }}</a></td>
-          <td>
+          <td class="td-p">
             {% if course.ID in enroll %}
-              <form>
+              <forms>
                 <button type="button" class="button-27-ed">Enrolled</button>
               </form>
             {% elif not course.quota  %}
