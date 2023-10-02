@@ -370,6 +370,21 @@ html [type="button"] {
     display: flex;
     padding-left: 120px;
 }
+.sec-table-ma {
+    display: flex;
+    padding-left: 100px;
+    text-align: left;
+}
+.sec-table-ma th {
+    font-weight: 1200;
+    text-align: left;
+    width: 200px;
+}
+.sec-table-ma td {
+    font-weight: 500;
+    text-align: left;
+    padding: 5px 50px 5px 0;
+}
 
 .sec-table td {
     font-weight: 500;
@@ -389,7 +404,10 @@ html [type="button"] {
     width: 246px;
 }
 .td-p {
-    padding-inline: 143px;
+    padding-inline: 25px;
+}
+.td-b {
+    padding-inline: 45px;
 }
 
 .sec-table td a {
@@ -409,8 +427,11 @@ html [type="button"] {
 
 .sec-table-title {
     display: flex;
-    justify-content: center;
     margin: 20px;
+}
+
+.jc-c {
+    justify-content: center;
 }
 
 .sec-table-title h3 {
@@ -461,6 +482,49 @@ html [type="button"] {
 }
 
 .button-27-en:active {
+    transform: translateY(0);
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5),
+        -4px -4px 6px 0 rgba(116, 125, 136, .2),
+        inset -4px -4px 6px 0 rgba(255, 255, 255, .5),
+        inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+}
+
+.button-27-dp {
+    appearance: none;
+    background-color: DarkSalmon;
+    border: none;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-width: 0;
+    outline: none;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
+
+    box-shadow: rgba(0, 0, 0, 0.25) 0 4px 6px;
+}
+
+.button-27-dp:disabled {
+    pointer-events: none;
+}
+
+.button-27-dp:hover {
+    transform: translateY(-2px);
+}
+
+.button-27-dp:active {
     transform: translateY(0);
     box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5),
         -4px -4px 6px 0 rgba(116, 125, 136, .2),
@@ -522,6 +586,16 @@ html [type="button"] {
     touch-action: manipulation;
     width: 100%;
     will-change: transform;
+}
 
-    /* box-shadow: rgba(0, 0, 0, 0.25) 0 4px 6px; */
+/* dropdown */
+.cos-down {
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+.cos-down select {
+    display: flex;
 }

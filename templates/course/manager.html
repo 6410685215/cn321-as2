@@ -1,0 +1,43 @@
+{% extends 'course/page_board.html' %}
+{% block manager %}
+  <div class="sec-table-title">
+    <h3>Course ID {{ courses.ID }}</h3>
+    <div class="cos-down">
+        <form action="{% url 'manager' %}" method="post">
+        {% csrf_token %}
+        <select name="course_id" onchange='if(this.value != 0) { this.form.submit(); }'>
+          <option value="0">
+            <h3>{{ courses.name }}</h3>
+          </option>
+          {% for course in dropdown %}
+            <option value="{{ course.ID }}">{{ course.name }}</option>
+          {% endfor %}
+        </select>
+      </form>
+      </div>
+  </div>
+  <div class="sec-table-ma">
+    <table>
+      <tr>
+        <th>Student ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th></th>
+      </tr>
+      {% for st in enroll %}
+      <tr>
+        <td>{{ st.ID }}</td>
+        <td>{{ st.fname }}</td>
+        <td>{{ st.lname }}</td>
+        <td>{{ st.email }}</td>
+        <td>
+          <form action="{% url 'course_drop' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" name="user_id" value="{{ st.ID }}" class="button-27-dp">Discard</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+{% endblock %}
