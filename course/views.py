@@ -59,14 +59,41 @@ def course_enroll(request):
 def course_drop(request):
     user = request.user
     admin = user.is_staff
-    if admin:
-        return render(request, 'course/page_course.html', { 'username': user,
-                                                            'admin': admin,})
     course = Course.objects.get(ID=request.POST['course_id'])
     course.quota += 1
     course.enrolled -= 1
     course.save()
+    if admin:
+        user = Student.objects.get(ID=request.POST['user_id'])
+        course_enroll = Enroll.objects.get(student_id=user, course_id=course)
+        course_enroll.delete()
+        return manager(request)
+    
     course_enroll = Enroll.objects.get(student_id=user, course_id=course)
     course_enroll.delete()
     return page_board(request)
+
+def manager(request):
+    user = request.user
+    admin = user.is_staff
+    dropdown = Course.objects.all()
+    print(request.method)
+    if request.method == "GET":
+        post = Course.objects.all()[:1].get()
+        enroll = Enroll.objects.filter(course_id=post.ID)
+        enroll = Student.objects.filter(ID__in=enroll.values_list('student_id', flat=True))
+        return render(request, 'course/manager.html', { 'username': user,
+                                                        'admin': admin,
+                                                        'courses': post, 
+                                                        'enroll': enroll,
+                                                        'dropdown': dropdown,})
+    
+    post = Course.objects.get(ID=request.POST['course_id'])
+    enroll = Enroll.objects.filter(course_id=post.ID)
+    enroll = Student.objects.filter(ID__in=enroll.values_list('student_id', flat=True))
+    return render(request, 'course/manager.html', { 'username': user,
+                                                    'admin': admin,
+                                                    'courses': post, 
+                                                    'enroll': enroll,
+                                                    'dropdown': dropdown,})
     
