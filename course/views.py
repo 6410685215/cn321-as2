@@ -102,4 +102,3 @@ def manager(request):
                                                     'courses': post, 
                                                     'enroll': enroll,
                                                     'dropdown': dropdown,})
-    
