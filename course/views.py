@@ -78,6 +78,12 @@ def manager(request):
     admin = user.is_staff
     dropdown = Course.objects.all()
     print(request.method)
+    if dropdown.count() == 0:
+        return render(request, 'course/manager.html', { 'username': user,
+                                                        'admin': admin,
+                                                        'courses': None, 
+                                                        'enroll': None,
+                                                        'dropdown': dropdown,})
     if request.method == "GET":
         post = Course.objects.all()[:1].get()
         enroll = Enroll.objects.filter(course_id=post.ID)
