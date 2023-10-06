@@ -1,6 +1,6 @@
 {% extends 'course/page_board.html' %}
 {% block manager %}
-  <div class="sec-table-title">
+  <div class="sec-table-title" style="justify-content:flex-start;">
     <h3>Course ID {{ courses.ID }}</h3>
     <div class="cos-down">
         <form action="{% url 'manager' %}" method="post">
@@ -16,8 +16,8 @@
       </form>
       </div>
   </div>
-  <div class="sec-table-ma">
-    <table>
+  <div class="box-scroll">
+    <table class="sec-table" style="padding-top: 0;">
       <tr>
         <th>Student ID</th>
         <th>First Name</th>
