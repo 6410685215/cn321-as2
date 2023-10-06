@@ -557,7 +557,7 @@ html [type="button"] {
     display: inline-block;
     font-weight: 600;
     line-height: normal;
-    margin: 0;
+    margin-bottom: 1em;
     min-width: 0;
     outline: none;
     padding: 8px 12px;
