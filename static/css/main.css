@@ -599,3 +599,24 @@ html [type="button"] {
 .cos-down select {
     display: flex;
 }
+
+/* cover */
+.cover {
+    max-width: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+}
+
+.pf {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    margin-top: 30%;
+    height: 50%;
+}
+
+.sec-div-cover {
+    display: block;
+    padding: 0 20px;
+}
