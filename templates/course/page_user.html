@@ -28,8 +28,17 @@
     </ul>
   </nav>
   <section class="sec">
-    <div class="sec-div">
-      <h3>{{ name }}</h3>
+    {% if admin %}
+    <div class="sec-div-cover pf">
+      <h3>User: {{username}}</h3>
+      <h3>Email: {{username.email}}</h3>
     </div>
+    {% else %}
+    <div class="sec-div-cover pf">
+      <h3>Name: {{name}}</h3>
+      <h3>Email: {{email}}</h3>
+    </div>
+    {% endif %}
+    <img class="cover" src="{% static 'images/cover.jpg' %}"></img>
   </section>
 {% endblock %}
