@@ -27,10 +27,8 @@
       {% for st in enroll %}
       <tr>
         <td>{{ st.ID }}</td>
-        <td style="position: relative;
-        left: 4em;">{{ st.fname }}</td>
-        <td style="    position: relative;
-        left: 4em;">{{ st.email }}</td>
+        <td>{{ st.fname }}</td>
+        <td>{{ st.email }}</td>
         <td>
           <form action="{% url 'course_drop' %}" method="post">
             {% csrf_token %}
