@@ -13,4 +13,4 @@ There are functions to use as follows:
 
 Presented by
 6410685165 Thanadon Boontawee
-6410685215 Patcharapol Thappakwan (Edit your name HERE if it wrong)
+6410685215 Patcharapon Tappakwan
