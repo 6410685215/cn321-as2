@@ -29,40 +29,41 @@
   </nav>
   <section class="sec">
     {% if admin %}
-    <div class="sec-table-title">
-      <h3>Course ID</h3>
-      <h3>Course Name</h3>
-      <h3>Quota</h3>
-      <h3 style="text-align: left;">Enroll</h3>
-    </div>
     <div class="box-scroll">
       <table class="sec-table">
+        <tr>
+          <th><h3>Course ID</h3></th>
+          <th><h3>Course Name</h3></th>
+          <th><h3>Quota</h3></th>
+          <th><h3>Enroll</h3></th>
+        </tr>
       {% for course in courses %}
         <tr>
-          <td><p class="p-id">{{ course.ID }}</p></td>
-          <td><p class="p-n">{{ course.name }}</p></td>
-          <td><a>{{ course.quota }}</a></td>
-          <td class="td-p">
-           <p style="margin-inline: 50px;">{{ course.enrolled }}</p>
-          </td>
+          <td>{{ course.ID }}</td>
+          <td>{{ course.name }}</td>
+          <td style="position: relative;
+          left: 5%;">{{ course.quota }}</td>
+          <td style="position: relative;
+          left: 3%;">{{ course.enrolled }}</td>
         </tr>
       {% endfor %}
     </div>
-    {% else %}
-    <div class="sec-table-title jc-c">
-      <h3>Course ID</h3>
-      <h3>Course Name</h3>
-      <h3>Quota</h3>
-      <h3 style="text-align: left;">Enroll</h3>
-    </div>
+    {% else %}65
     <div class="box-scroll">
       <table class="sec-table">
+        <tr>
+          <th><h3>Course ID</h3></th>
+          <th><h3>Course Name</h3></th>
+          <th><h3>Quota</h3></th>
+          <th><h3>Enroll</h3></th>
+        </tr>
       {% for course in courses %}
         <tr>
-          <td><p class="p-id">{{ course.ID }}</p></td>
-          <td><p class="p-n">{{ course.name }}</p></td>
-          <td><a>{{ course.quota }}</a></td>
-          <td class="td-b">
+          <td>{{ course.ID }}</td>
+          <td>{{ course.name }}</td>
+          <td style="position: relative;
+          left: 5%;">{{ course.quota }}</td>
+          <td>
             {% if course.ID in enroll %}
               <forms>
                 <button type="button" class="button-27-ed">Enrolled</button>

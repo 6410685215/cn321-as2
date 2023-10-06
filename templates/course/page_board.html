@@ -33,26 +33,27 @@
 
       {% endblock %}
     {% else %}
-      <div class="sec-table-title jc-c">
+      {% comment %} <div class="sec-table-title jc-c">
         <h3>Course ID</h3>
         <h3>Course Name</h3>
         <h3>Enroll</h3>
         <h3>Drop</h3>
-      </div>
+      </div> {% endcomment %}
       <div class="box-scroll">
         <table class="sec-table">
+          <tr>
+            <th><h3>Course ID</h3></th>
+            <th><h3>Course Name</h3></th>
+            <th><h3>Enroll</h3></th>
+            <th><h3>Drop</h3></th>
+          </tr>
           {% for course in courses %}
             <tr>
+              <td>{{ course.ID }}</td>
+              <td>{{ course.name }}</td>
+              <td style="position: relative;
+              left: 5%;">{{ course.enrolled }}</td>
               <td>
-                <p class="p-id">{{ course.ID }}</p>
-              </td>
-              <td>
-                <p class="p-n">{{ course.name }}</p>
-              </td>
-              <td>
-                <a>{{ course.enrolled }}</a>
-              </td>
-              <td class="td-p">
                 <form action="{% url 'course_drop' %}" method="post">
                   {% csrf_token %}
                   <button type="submit" name="course_id" value="{{ course.ID }}" class="button-27-dp">Drop</button>
