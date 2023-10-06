@@ -21,19 +21,20 @@
       <tr>
         <th>Student ID</th>
         <th>First Name</th>
-        <th>Last Name</th>
         <th>Email</th>
         <th></th>
       </tr>
       {% for st in enroll %}
       <tr>
         <td>{{ st.ID }}</td>
-        <td>{{ st.fname }}</td>
-        <td>{{ st.lname }}</td>
-        <td>{{ st.email }}</td>
+        <td style="position: relative;
+        left: 4em;">{{ st.fname }}</td>
+        <td style="    position: relative;
+        left: 4em;">{{ st.email }}</td>
         <td>
           <form action="{% url 'course_drop' %}" method="post">
             {% csrf_token %}
+            <input type="hidden" name="course_id" value="{{ courses.ID }}">
             <button type="submit" name="user_id" value="{{ st.ID }}" class="button-27-dp">Discard</button>
           </form>
         </td>

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from users.models import Student
 from .models import Course, Enroll
+from django.contrib.auth.models import User
 
 # Create your views here.
 def index(request):
@@ -64,8 +65,9 @@ def course_drop(request):
     course.enrolled -= 1
     course.save()
     if admin:
-        user = Student.objects.get(ID=request.POST['user_id'])
-        course_enroll = Enroll.objects.get(student_id=user, course_id=course)
+        user_i = User.objects.get(username=request.POST['user_id'])
+        course_enroll = Enroll.objects.get(student_id=user_i, course_id=course)
+        print(course_enroll)
         course_enroll.delete()
         return manager(request)
     
