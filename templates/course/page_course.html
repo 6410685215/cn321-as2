@@ -29,60 +29,61 @@
   </nav>
   <section class="sec">
     {% if admin %}
-    <div class="box-scroll">
-      <table class="sec-table">
-        <tr>
-          <th><h3>Course ID</h3></th>
-          <th><h3>Course Name</h3></th>
-          <th><h3>Quota</h3></th>
-          <th><h3>Enroll</h3></th>
-        </tr>
-      {% for course in courses %}
-        <tr>
-          <td>{{ course.ID }}</td>
-          <td>{{ course.name }}</td>
-          <td style="position: relative;
-          left: 5%;">{{ course.quota }}</td>
-          <td style="position: relative;
-          left: 3%;">{{ course.enrolled }}</td>
-        </tr>
-      {% endfor %}
-    </div>
+    <table class="sec-table">
+      <tr>
+        <th><h3>Course ID</h3></th>
+        <th><h3>Course Name</h3></th>
+        <th><h3>Quota</h3></th>
+        <th><h3>Enroll</h3></th>
+      </tr>
+      <div class="box-scroll">
+        {% for course in courses %}
+          <tr>
+            <td>{{ course.ID }}</td>
+            <td>{{ course.name }}</td>
+            <td style="position: relative; left: 5%;">
+              {{ course.quota }}</td>
+            <td style="position: relative; left: 3%;">
+              {{ course.enrolled }}</td>
+          </tr>
+        {% endfor %}
+      </div>
+    </table>
     {% else %}
-    <div class="box-scroll">
-      <table class="sec-table">
-        <tr>
-          <th><h3>Course ID</h3></th>
-          <th><h3>Course Name</h3></th>
-          <th><h3>Quota</h3></th>
-          <th><h3>Enroll</h3></th>
-        </tr>
-      {% for course in courses %}
-        <tr>
-          <td>{{ course.ID }}</td>
-          <td>{{ course.name }}</td>
-          <td style="position: relative;
-          left: 5%;">{{ course.quota }}</td>
-          <td>
-            {% if course.ID in enroll %}
-              <forms>
-                <button type="button" class="button-27-ed">Enrolled</button>
-              </form>
-            {% elif not course.quota  %}
-              <form>
-                <button type="button" class="button-27-fu">Full</button>
-              </form>
-            {% else %}
-            <form action="{% url 'course_enroll' %}" method="post">
-              {% csrf_token %}
-              <button type="submit" name="course_id" value="{{ course.ID }}" class="button-27-en">Enroll</button>
-            </form>
-            {% endif %}
-          </td>
-        </tr>
-      {% endfor %}
-      </table>
-    </div>
+    <table class="sec-table">
+      <tr>
+        <th><h3>Course ID</h3></th>
+        <th><h3>Course Name</h3></th>
+        <th><h3>Quota</h3></th>
+        <th><h3>Enroll</h3></th>
+      </tr>
+      <div class="box-scroll">
+        {% for course in courses %}
+          <tr>
+            <td>{{ course.ID }}</td>
+            <td>{{ course.name }}</td>
+            <td style="position: relative; left: 5%;">
+              {{ course.quota }}</td>
+            <td>
+              {% if course.ID in enroll %}
+                <form>
+                  <button type="button" class="button-27-ed">Enrolled</button>
+                </form>
+              {% elif not course.quota %}
+                <form>
+                  <button type="button" class="button-27-fu">Full</button>
+                </form>
+              {% else %}
+                <form action="{% url 'course_enroll' %}" method="post">
+                  {% csrf_token %}
+                  <button type="submit" name="course_id" value="{{ course.ID }}" class="button-27-en">Enroll</button>
+                </form>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </div>
+    </table>
     {% endif %}
   </section>
 {% endblock %}

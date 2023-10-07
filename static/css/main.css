@@ -436,8 +436,7 @@ html [type="button"] {
 
 .box-scroll {
     overflow: auto;
-    height: 400px;
-    /* background-color: #212529; */
+    height: 70vh;
 }
 
 /* button */
