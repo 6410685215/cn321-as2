@@ -16,6 +16,7 @@
       </form>
       </div>
   </div>
+  <div class="box-scroll">
   <table class="sec-table-mg" style="padding-top: 0;">
     <tr style="padding-bottom: 2em;">
       <th>Student ID</th>
@@ -23,7 +24,6 @@
       <th style="width: 30%; text-align: left;">Email</th>
       <th></th>
     </tr>
-    <div class="box-scroll">
     {% for st in enroll %}
     <tr>
       <td>{{ st.ID }}</td>
@@ -38,6 +38,6 @@
       </td>
     </tr>
     {% endfor %}
-    </div>
   </table>
+  </div>
 {% endblock %}

@@ -29,6 +29,7 @@
   </nav>
   <section class="sec">
     {% if admin %}
+    <div class="box-scroll">
     <table class="sec-table">
       <tr>
         <th><h3>Course ID</h3></th>
@@ -36,7 +37,6 @@
         <th><h3>Quota</h3></th>
         <th><h3>Enroll</h3></th>
       </tr>
-      <div class="box-scroll">
         {% for course in courses %}
           <tr>
             <td>{{ course.ID }}</td>
@@ -47,9 +47,10 @@
               {{ course.enrolled }}</td>
           </tr>
         {% endfor %}
-      </div>
-    </table>
+      </table>
+    </div>
     {% else %}
+    <div class="box-scroll">
     <table class="sec-table">
       <tr>
         <th><h3>Course ID</h3></th>
@@ -57,7 +58,6 @@
         <th><h3>Quota</h3></th>
         <th><h3>Enroll</h3></th>
       </tr>
-      <div class="box-scroll">
         {% for course in courses %}
           <tr>
             <td>{{ course.ID }}</td>
@@ -82,8 +82,8 @@
             </td>
           </tr>
         {% endfor %}
-      </div>
-    </table>
+      </table>
+    </div>
     {% endif %}
   </section>
 {% endblock %}
