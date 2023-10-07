@@ -437,6 +437,7 @@ html [type="button"] {
 .box-scroll {
     overflow: auto;
     height: 70vh;
+    margin-top: 2em;
 }
 
 /* button */
