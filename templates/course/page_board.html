@@ -33,30 +33,29 @@
 
       {% endblock %}
     {% else %}
-    <table class="sec-table">
-      <tr>
-        <th><h3>Course ID</h3></th>
-        <th><h3>Course Name</h3></th>
-        <th><h3>Enroll</h3></th>
-        <th><h3>Drop</h3></th>
-      </tr>
       <div class="box-scroll">
-        {% for course in courses %}
+        <table class="sec-table">
           <tr>
-            <td>{{ course.ID }}</td>
-            <td>{{ course.name }}</td>
-            <td style="position: relative;
-            left: 5%;">{{ course.enrolled }}</td>
-            <td>
-              <form action="{% url 'course_drop' %}" method="post">
-                {% csrf_token %}
-                <button type="submit" name="course_id" value="{{ course.ID }}" class="button-27-dp">Drop</button>
-              </form>
-            </td>
+            <th><h3>Course ID</h3></th>
+            <th><h3>Course Name</h3></th>
+            <th><h3>Enroll</h3></th>
+            <th><h3>Drop</h3></th>
           </tr>
-        {% endfor %}
+          {% for course in courses %}
+            <tr>
+              <td>{{ course.ID }}</td>
+              <td>{{ course.name }}</td>
+              <td style="position: relative; left: 5%;">{{ course.enrolled }}</td>
+              <td>
+                <form action="{% url 'course_drop' %}" method="post">
+                  {% csrf_token %}
+                  <button type="submit" name="course_id" value="{{ course.ID }}" class="button-27-dp">Drop</button>
+                </form>
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
       </div>
-    </table>
     {% endif %}
   </section>
 {% endblock %}

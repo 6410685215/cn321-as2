@@ -3,9 +3,9 @@
   <div class="sec-table-title" style="justify-content:flex-start;">
     <h3>Course ID {{ courses.ID }}</h3>
     <div class="cos-down">
-        <form action="{% url 'manager' %}" method="post">
+      <form action="{% url 'manager' %}" method="post">
         {% csrf_token %}
-        <select name="course_id" onchange='if(this.value != 0) { this.form.submit(); }'>
+        <select name="course_id" onchange="if(this.value != 0) this.form.submit()">
           <option value="0">
             <h3>{{ courses.name }}</h3>
           </option>
@@ -14,30 +14,30 @@
           {% endfor %}
         </select>
       </form>
-      </div>
-  </div>
-  <table class="sec-table-mg" style="padding-top: 0;">
-    <tr style="padding-bottom: 2em;">
-      <th>Student ID</th>
-      <th style="width: 30%;">First Name</th>
-      <th style="width: 30%; text-align: left;">Email</th>
-      <th></th>
-    </tr>
-    <div class="box-scroll">
-    {% for st in enroll %}
-    <tr>
-      <td>{{ st.ID }}</td>
-      <td>{{ st.fname }}</td>
-      <td>{{ st.email }}</td>
-      <td>
-        <form action="{% url 'course_drop' %}" method="post">
-          {% csrf_token %}
-          <input type="hidden" name="course_id" value="{{ courses.ID }}">
-          <button type="submit" name="user_id" value="{{ st.ID }}" class="button-27-dp">Discard</button>
-        </form>
-      </td>
-    </tr>
-    {% endfor %}
     </div>
-  </table>
+  </div>
+  <div class="box-scroll">
+    <table class="sec-table-mg">
+      <tr style="padding-bottom: 2em">
+        <th>Student ID</th>
+        <th style="width: 20vw;">First Name</th>
+        <th style="width: 20vw; text-align: left;">Email</th>
+        <th></th>
+      </tr>
+      {% for st in enroll %}
+        <tr>
+          <td>{{ st.ID }}</td>
+          <td>{{ st.fname }}</td>
+          <td>{{ st.email }}</td>
+          <td>
+            <form action="{% url 'course_drop' %}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="course_id" value="{{ courses.ID }}" />
+              <button type="submit" name="user_id" value="{{ st.ID }}" class="button-27-dp">Discard</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
 {% endblock %}
