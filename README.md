@@ -9,8 +9,8 @@ There are functions to use as follows:
 * More function
   - Admin can see all of student list who request a quota
 
-🔗 Demonstration video link : ['here'](https://www.youtube.com/watch?v=a5StHLmtbTk)
+🔗 Demonstration video link : [here](https://www.youtube.com/watch?v=a5StHLmtbTk)
 
-Presented by
-6410685165 Thanadon Boontawee
-6410685215 Patcharapon Tappakwan
+#### Presented by
+- 6410685165 Thanadon Boontawee
+- 6410685215 Patcharapon Tappakwan
