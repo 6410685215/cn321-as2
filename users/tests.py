@@ -43,14 +43,12 @@ class UserTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
     # def login_get(self):
-    #     """incex view's status code is ok"""
     #     self.client = Client()
     #     response = self.client.get("")
     #     self.assertEqual(response.status_code, 200)
     #     self.assertEqual(, LoginForm())
 
     # def login_as_user(self):
-    #     """incex view's status code is ok"""
     #     self.client = Client()
     #     # password= make_password("password1")
     #     form = {'username': "user1", 'password': "password1"}
@@ -62,7 +60,6 @@ class UserTestCase(TestCase):
     #     self.assertEqual(response.status_code, 200)
         
     # def login_as_staff(self):
-    #     """incex view's status code is ok"""
     #     self.client = Client()
     #     # password= make_password("password2")
     #     form = {'username': "user2", 'password': "password2"}
@@ -73,7 +70,6 @@ class UserTestCase(TestCase):
     #     self.assertEqual(response.status_code, 200)
 
     def test_is_authenticated_wrong_pass(self):
-        """incex view's status code is ok"""
         c = Client()
         form = {'username': "user1", 'password': "wrongpassword"}
         # c.login(username="user1", password="wrongpassword")
@@ -81,7 +77,6 @@ class UserTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_is_authenticated_form_invalid(self):
-        """incex view's status code is ok"""
         c = Client()
         form = {'username': "user1"}
         # c.login(username="user1", password="wrongpassword")
@@ -95,14 +90,14 @@ class UserTestCase(TestCase):
         self.assertEqual(response.status_code, 302)
 
     # def test_get_method((self)):
-    #     """context is correctly set"""
+
     #     c = Client()
     #     response = c.get(reverse('flights:index'))
     #     self.assertEqual(
     #         response.context['flights'].count(),1)
         
     # def test_post_method(self):
-    #     """context is correctly set"""
+    
 
     # def test_user_is_none(self):
     
