@@ -1,0 +1,6 @@
+Found 23 test(s).
+System check identified no issues (0 silenced).
+user1 CN360
+POST
+GET
+POST
