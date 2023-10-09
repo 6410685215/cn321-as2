@@ -95,16 +95,5 @@ class UserTestCase(TestCase):
     #     response = c.get(reverse('flights:index'))
     #     self.assertEqual(
     #         response.context['flights'].count(),1)
-        
-    # def test_post_method(self):
-    
-
-    # def test_user_is_none(self):
-    
-    # def test_user_is_staff(self):
-
-    # def test_user_invalid(self):
-
-    # def test_sign_out(self):
 
     
