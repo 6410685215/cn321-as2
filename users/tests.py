@@ -25,6 +25,7 @@ class UserTestCase(TestCase):
 
         student1.save()
     
+
     def test_annoymous(self):
         c = Client()
         response = c.get(reverse('login'))
@@ -42,11 +43,11 @@ class UserTestCase(TestCase):
         response = c.get(reverse('login'))
         self.assertEqual(response.status_code, 200)
 
-    # def login_get(self):
-    #     self.client = Client()
-    #     response = self.client.get("")
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertEqual(, LoginForm())
+    def login_get(self):
+        self.client = Client()
+        response = self.client.get("")
+        self.assertEqual(response.status_code, 200)
+        # self.assertEqual(, LoginForm())
 
     # def login_as_user(self):
     #     self.client = Client()
@@ -61,7 +62,7 @@ class UserTestCase(TestCase):
         
     # def login_as_staff(self):
     #     self.client = Client()
-    #     # password= make_password("password2")
+    #     # password = make_password("password2")
     #     form = {'username': "user2", 'password': "password2"}
     #     # c.login(username="user2", password="password2")
     #     # user = User.objects.get(username="user2")
@@ -88,12 +89,3 @@ class UserTestCase(TestCase):
         c.login(username="user1", password="password1")
         response = c.post(reverse('logout'))
         self.assertEqual(response.status_code, 302)
-
-    # def test_get_method((self)):
-
-    #     c = Client()
-    #     response = c.get(reverse('flights:index'))
-    #     self.assertEqual(
-    #         response.context['flights'].count(),1)
-
-    
