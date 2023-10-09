@@ -13,7 +13,7 @@ from .forms import LoginForm
 # Create your tests here.
 class UserTestCase(TestCase):
     def setUp(self):
-        #create a
+        # create users
         user1 = User.objects.create_user(username="user1",password="password1")
         user2 = User.objects.create_user(username="user2",password="password2", is_staff=True)
 
@@ -25,10 +25,10 @@ class UserTestCase(TestCase):
 
         student1.save()
     
-    # def test_annoymous(self):
-    #     c = Client()
-    #     response = c.get(reverse('login'))
-    #     self.assertEqual(response.status_code, 200)
+    def test_annoymous(self):
+        c = Client()
+        response = c.get(reverse('login'))
+        self.assertEqual(response.status_code, 200)
 
     def test_login_already_user(self):
         c = Client()
