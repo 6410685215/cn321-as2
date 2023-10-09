@@ -49,26 +49,26 @@ class UserTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         # self.assertEqual(, LoginForm())
 
-    # def login_as_user(self):
-    #     self.client = Client()
-    #     # password= make_password("password1")
-    #     form = {'username': "user1", 'password': "password1"}
-    #     # c.login(username="user1", password="password1")
-    #     # user = User.objects.get(username="user1")
-    #     # self.assertEqual(user.is_staff, False)
-    #     response = self.client.post(reverse('login'), form)
+    def login_as_user(self):
+        self.client = Client()
+        # password = make_password("password1")
+        form = {'username': "user1", 'password' : "password1"}
+        # c.login(username="user1", password="password1")
+        # user = User.objects.get(username="user1")
+        # self.assertEqual(user.is_staff, False)
+        response = self.client.post(reverse('login'), form)
 
-    #     self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         
-    # def login_as_staff(self):
-    #     self.client = Client()
-    #     # password = make_password("password2")
-    #     form = {'username': "user2", 'password': "password2"}
-    #     # c.login(username="user2", password="password2")
-    #     # user = User.objects.get(username="user2")
-    #     # self.assertEqual(user.is_staff, True)
-    #     response = self.client.post(reverse('login'), form)
-    #     self.assertEqual(response.status_code, 200)
+    def login_as_staff(self):
+        self.client = Client()
+        # password = make_password("password2")
+        form = {'username': "user2", 'password': "password2"}
+        # c.login(username="user2", password="password2")
+        # user = User.objects.get(username="user2")
+        # self.assertEqual(user.is_staff, True)
+        response = self.client.post(reverse('login'), form)
+        self.assertEqual(response.status_code, 200)
 
     def test_is_authenticated_wrong_pass(self):
         c = Client()
