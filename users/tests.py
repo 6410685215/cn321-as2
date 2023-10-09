@@ -3,8 +3,6 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from .models import Student
 
-# from django.contrib.auth import login, logout
-
 # Create your tests here.
 class UserTestCase(TestCase):
     def setUp(self):
