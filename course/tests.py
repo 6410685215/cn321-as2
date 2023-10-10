@@ -120,19 +120,19 @@ class CourseTestCase(TestCase):
     #     self.assertEqual(response.status_code, 200)
 
 
-# class CourseTestCase_Zero(TestCase):
-#     def setUp(self):
-#         # create users
-#         user1 = User.objects.create_user(username="user1",password="password1")
-#         user2 = User.objects.create_user(username="user2",password="password2", is_staff=True)
+class CourseTestCase_Zero(TestCase):
+    def setUp(self):
+        # create users
+        user1 = User.objects.create_user(username="user1",password="password1")
+        user2 = User.objects.create_user(username="user2",password="password2", is_staff=True)
 
-#         student1 = Student.objects.create(ID=user1, fname="first1", lname="last1", email="user@mail.com")
-#         user1.save()
-#         user2.save()
-#         student1.save()
+        student1 = Student.objects.create(ID=user1, fname="first1", lname="last1", email="user@mail.com")
+        user1.save()
+        user2.save()
+        student1.save()
 
-#     def test_manager_dropdown_zero(self):
-#         c = Client()
-#         c.login(username="user2", password="password2")
-#         response = c.post(reverse('manager'))
-#         self.assertEqual(response.status_code, 200)
+    def test_manager_dropdown_zero(self):
+        c = Client()
+        c.login(username="user2", password="password2")
+        response = c.post(reverse('manager'))
+        self.assertEqual(response.status_code, 200)
