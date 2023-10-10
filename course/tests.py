@@ -38,6 +38,9 @@ class CourseTestCase(TestCase):
         user2.save()
         student1.save()
     
+    def test_model_course_str(self):
+            course = Course.objects.get(ID="CN331")
+            self.assertEqual(str(course), "CN331 Software Engineering - 1")
 
     def test_index(self):
         c = Client()
@@ -113,11 +116,11 @@ class CourseTestCase(TestCase):
         response = c.post(reverse('course_drop'), {"user_id" : "user1", "course_id" : "CN360"})
         self.assertEqual(response.status_code, 200)
 
-    # def test_manager_get(self):
-    #     c = Client()
-    #     # c.login(username="user1", password="password1")
-    #     response = c.get(reverse('manager'))
-    #     self.assertEqual(response.status_code, 200)
+    def test_manager_get(self):
+        c = Client()
+        c.login(username="user2", password="password2")
+        response = c.get(reverse('manager'))
+        self.assertEqual(response.status_code, 200)
 
 
 class CourseTestCase_Zero(TestCase):
