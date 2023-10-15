@@ -3,11 +3,6 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from .models import Student
 
-from django.contrib.auth.hashers import make_password
-from django.contrib.auth import authenticate
-
-from .forms import LoginForm
-
 # from django.contrib.auth import login, logout
 
 # Create your tests here.
@@ -16,13 +11,14 @@ class UserTestCase(TestCase):
         # create users
         user1 = User.objects.create_user(username="user1",password="password1")
         user2 = User.objects.create_user(username="user2",password="password2", is_staff=True)
-
         student1 = Student.objects.create(ID=user1, fname="first1", lname="last1", email="user@mail.com")
-
-
+        self.staff_user = User.objects.create_user(
+            username='admin',
+            password='admin1234',
+            is_staff=True
+        )
         user1.save()
         user2.save()
-
         student1.save()
     
     def test_models_student_tostr(self):
@@ -57,22 +53,15 @@ class UserTestCase(TestCase):
         response = c.post(reverse('login'), form)
         self.assertEqual(response.status_code, 200)
         
-    def login_as_staff(self):
-        self.client = Client()
-        # form = {'username': "user2", 'password': "password2"}
-        # user2 = User.objects.get(username='user2')
-        # self.assertEqual(user2.is_staff, True)
-        # login_already = c.login(username="user2", password="password2")
-        # self.assertEqual(login_already, True)
-        # response = c.post(reverse('login'), form)
-        # self.assertEqual(response.status_code, 200)
-        # Attempt login as staff user
-        response = self.client.post(reverse('login'), {'username': 'user2', 'password': 'password2'})
+    def test_login_as_staff(self):
+        c = Client()
+        form = {'username': "admin", 'password' : "admin1234"}
+        response = c.post(reverse('login'), form)
+        self.assertTrue(response.context['user'].is_authenticated)
+        self.assertTrue(response.context['user'].is_staff)
         self.assertEqual(response.status_code, 200)
-        # Check if the staff user is logged in
-        user = User.objects.get(username='user2')
-        self.assertTrue(user.is_authenticated)
-        self.assertTrue(user.is_staff)
+        self.assertTemplateUsed(response, 'course/page_user.html')
+        self.assertTrue(response.context['admin'])
 
 
     def test_is_authenticated_wrong_pass(self):
