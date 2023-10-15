@@ -10,9 +10,6 @@ from users.models import Student
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate
 
-
-# from django.contrib.auth import login, logout
-
 # Create your tests here.
 class CourseTestCase(TestCase):
     def setUp(self):
@@ -95,15 +92,10 @@ class CourseTestCase(TestCase):
         c.login(username="user2", password="password2")
         user1 = User.objects.get(username="user1")
         cn360 = Course.objects.get(ID="CN360")
-        # # cn360_enroll = Enroll.objects.create(student_id=user1, course_id=cn360)
-        # cn360.enrolled += 1
-        # cn360.quota -= 1
-        # cn360.save()
+
         self.assertEqual(cn360.enrolled, 1)
         response = c.post(reverse('course_drop'), {"user_id" : "user1", "course_id" : "CN360"})
-        # self.assertEqual(cn360.enrolled, 0)
-        # course_enroll = Enroll.objects.get(student_id='user1', course_id=course) 
-        # course_enroll.delete() 
+        
         self.assertEqual(response.status_code, 200)
 
 
